@@ -1,3 +1,3 @@
 class Environmet{
-  static const String API_DELIVERY = "10.30.0.92:3000";
+  static const String API_DELIVERY = "192.168.0.9:3000";
 }
