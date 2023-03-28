@@ -11,9 +11,11 @@ class ClientProductsListPage extends StatefulWidget {
 
 class _ClientProductsListPageState extends State<ClientProductsListPage> {
   ClientProductsListController _con = new ClientProductsListController();
+
   @override
   void initState(){
     super.initState();
+
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       _con.init(context);
     });
@@ -24,9 +26,9 @@ class _ClientProductsListPageState extends State<ClientProductsListPage> {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-          onPressed: _con.logout(),
-          child: const Text('Cerrar Sesion'),
-        ),
+          onPressed: _con.logout,
+          child: const Text("Cerrar Sesion")
+        )
       ),
     );
   }
