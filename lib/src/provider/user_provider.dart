@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_delivery/src/api/environment.dart';
 import 'package:flutter_delivery/src/models/response_api.dart';
@@ -7,8 +8,8 @@ import 'package:flutter_delivery/src/models/user.dart';
 import 'package:http/http.dart' as http;
 
 class UserProvider {
-    String _url = Environmet.API_DELIVERY;
-    String _api = '/api/users';
+    final String _url = Environmet.API_DELIVERY;
+    final String _api = '/api/users';
 
     BuildContext context;
 
@@ -29,7 +30,9 @@ class UserProvider {
         return responseApi;
       }
       catch(e){
-        print('Error: $e');
+        if (kDebugMode) {
+          print('Error: $e');
+        }
         return null;
       }
     }
@@ -50,7 +53,9 @@ class UserProvider {
         return responseApi;
       }
       catch(e){
-        print('Error: $e');
+        if (kDebugMode) {
+          print('Error: $e');
+        }
         return null;
       }
     }

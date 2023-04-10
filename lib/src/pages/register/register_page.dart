@@ -11,7 +11,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  RegisterController _con = new RegisterController();
+  final RegisterController _con = RegisterController();
 
   @override
   void initState(){

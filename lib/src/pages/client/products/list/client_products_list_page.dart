@@ -10,7 +10,7 @@ class ClientProductsListPage extends StatefulWidget {
 }
 
 class _ClientProductsListPageState extends State<ClientProductsListPage> {
-  ClientProductsListController _con = new ClientProductsListController();
+  final ClientProductsListController _con = ClientProductsListController();
 
   @override
   void initState(){

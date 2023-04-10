@@ -12,7 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  LoginController _con = new LoginController();
+  final LoginController _con = LoginController();
 
   @override
   void initState() {
@@ -77,18 +77,6 @@ class _LoginPageState extends State<LoginPage> {
             top: 150, bottom: MediaQuery.of(context).size.height * 0.17),
         child: Lottie.asset('assets/json/delivery.json',
             width: 350, height: 200, fit: BoxFit.fill));
-  }
-
-  Widget _imageBanner() {
-    return Container(
-      margin: EdgeInsets.only(
-          top: 100, bottom: MediaQuery.of(context).size.height * 0.22),
-      child: Image.asset(
-        'assets/img/delivery.png',
-        width: 200,
-        height: 200,
-      ),
-    );
   }
 
   Widget _textFieldEmail() {

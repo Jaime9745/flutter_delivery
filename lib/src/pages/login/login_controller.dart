@@ -8,11 +8,11 @@ import '../../utils/shared_pref.dart';
 
 class LoginController{
   BuildContext context;
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
-  UserProvider usersProvider = new UserProvider();
-  SharedPref _sharedPref = new SharedPref();
+  UserProvider usersProvider = UserProvider();
+  final SharedPref _sharedPref = SharedPref();
 
   Future init(BuildContext context) async{
     this.context = context;
@@ -43,6 +43,8 @@ class LoginController{
     }else{
       MySnackbar.show(context, responseApi.message);
     }
+
+    MySnackbar.show(context, responseApi.message);
     
     print('Respuesta object: ${responseApi}');
     print('Respuesta: ${responseApi.toJson()}');

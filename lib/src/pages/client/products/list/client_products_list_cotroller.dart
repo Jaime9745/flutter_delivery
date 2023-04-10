@@ -3,7 +3,7 @@ import 'package:flutter_delivery/src/utils/shared_pref.dart';
 
 class ClientProductsListController{
   BuildContext context;
-  SharedPref _sharedPref = new SharedPref();
+  final SharedPref _sharedPref = SharedPref();
 
   Future init(BuildContext context){
     this.context = context;

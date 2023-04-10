@@ -6,14 +6,14 @@ import '../../models/user.dart';
 
 class RegisterController {
   BuildContext context;
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController nameController = new TextEditingController();
-  TextEditingController lastnameController = new TextEditingController();
-  TextEditingController phoneController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
-  TextEditingController confirmPasswordController = new TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController lastnameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
-  UserProvider usersProvider = new UserProvider();
+  UserProvider usersProvider = UserProvider();
 
   Future init(BuildContext context) {
     this.context = context;
@@ -43,7 +43,7 @@ class RegisterController {
       return;
     }
 
-    User user = new User(
+    User user = User(
         email: email,
         name: name,
         lastname: lastname,
