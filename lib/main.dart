@@ -25,7 +25,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         'Login': (BuildContext context) => const LoginPage(),
         'register': (BuildContext context) => const RegisterPage(),
-        'client/products/list': (BuildContext context) => const ClientProductsListPage()
+        'client/products/list': (BuildContext context) => const ClientProductsListPage(),
+        'delivery/orders/list': (BuildContext context) => const ClientProductsListPage()
       },
       theme: ThemeData(
         primaryColor: MyColors.primaryColor
