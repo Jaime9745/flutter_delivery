@@ -14,7 +14,7 @@ class RolesPage extends StatefulWidget {
 
 class _RolesPageState extends State<RolesPage> {
 
-  RolesController _con = new RolesController();
+  final RolesController _con = RolesController();
 
   @override
   void initState(){
@@ -44,16 +44,16 @@ class _RolesPageState extends State<RolesPage> {
       },
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 100,
             child: FadeInImage(
               image: rol.image != null ? NetworkImage(rol.image) : const AssetImage('assets/img/no-image.png'),
               fit: BoxFit.contain,
-              fadeInDuration: Duration(milliseconds: 50),
+              fadeInDuration: const Duration(milliseconds: 50),
               placeholder: const AssetImage('assets/img/no-image.png'),
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
             rol.name ?? '',
             style: const TextStyle(
@@ -61,7 +61,7 @@ class _RolesPageState extends State<RolesPage> {
               color: Colors.black
             ),
           ),
-          SizedBox(height: 25),
+          const SizedBox(height: 25),
         ],
       ),
     );
