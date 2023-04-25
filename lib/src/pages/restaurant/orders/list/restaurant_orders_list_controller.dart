@@ -3,7 +3,7 @@ import 'package:flutter_delivery/src/utils/shared_pref.dart';
 
 import '../../../../models/user.dart';
 
-class ClientProductsListController{
+class RestaurantOrdersListController{
   BuildContext context;
   final SharedPref _sharedPref = SharedPref();
   GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
