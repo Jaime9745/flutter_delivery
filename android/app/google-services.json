@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "253917504089",
+    "project_id": "delivery-app-5f472",
+    "storage_bucket": "delivery-app-5f472.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253917504089:android:384be0a9b128944feb8748",
+        "android_client_info": {
+          "package_name": "com.optic.flutter_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253917504089-tr9nh2l05vb1954ekthkqem20ivrsfco.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.optic.flutter_delivery",
+            "certificate_hash": "a098bcb74734cddbc27f22d8a30586f833da604d"
+          }
+        },
+        {
+          "client_id": "253917504089-8cfn59kd5v9qsblinee75vvk8vuv8l4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtDEtSeRS_ODpPNiAdiTZdtgJmGnzPLvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253917504089-8cfn59kd5v9qsblinee75vvk8vuv8l4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

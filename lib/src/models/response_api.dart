@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+
 ResponseApi responseApiFromJson(String str) => ResponseApi.fromJson(json.decode(str));
 
 String responseApiToJson(ResponseApi data) => json.encode(data.toJson());
@@ -26,7 +28,9 @@ class ResponseApi {
     try {
       data = json['data'];
     } catch(e) {
-      print('Exception data $e');
+      if (kDebugMode) {
+        print('Exception data $e');
+      }
     }
 
   }
