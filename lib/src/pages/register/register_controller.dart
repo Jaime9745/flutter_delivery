@@ -75,10 +75,12 @@ class RegisterController {
       if (kDebugMode) {
         print('RESPUESTA: ${responseApi.toJson()}');
       }
+      if (!context.mounted) return;
       MySnackbar.show(context, responseApi.message!);
 
       if (responseApi.success!) {
         Future.delayed(const Duration(seconds: 3), () {
+          if (!context.mounted) return;
           Navigator.pushReplacementNamed(context, 'Login');
         });
       }
@@ -95,6 +97,7 @@ class RegisterController {
     if (xFile != null){
       imageFile = File(xFile!.path);
     }
+    if (!context.mounted) return;
     Navigator.pop(context);
     refresh();
   }

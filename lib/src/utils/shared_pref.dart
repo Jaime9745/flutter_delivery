@@ -26,6 +26,7 @@ class SharedPref{
 
   void logout(BuildContext context) async{
     await remove('user');
+    if (!context.mounted) return;
     Navigator.pushNamedAndRemoveUntil(context, 'Login', (route) => false);
   }
 }

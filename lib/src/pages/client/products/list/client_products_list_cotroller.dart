@@ -17,7 +17,7 @@ class ClientProductsListController{
     refresh();
   }
 
-  logout(){
+  void logout(){
     _sharedPref.logout(context);
   }
 

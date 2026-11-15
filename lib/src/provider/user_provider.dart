@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 
 class UserProvider {
-    final String _url = Environmet.API_DELIVERY;
+    final String _url = Environmet.apiDelivery;
     final String _api = '/api/users';
 
     late BuildContext context;

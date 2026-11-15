@@ -1,4 +1,5 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_delivery/src/models/response_api.dart';
 import 'package:flutter_delivery/src/provider/user_provider.dart';
 import 'package:flutter_delivery/src/utils/my_snackbar.dart';
@@ -19,6 +20,7 @@ class LoginController{
     await usersProvider.init(context);
 
     User user = User.fromJson(await _sharedPref.read('user') ?? {});
+    if (!context.mounted) return;
 
     if(user.sessionToken != null){
       if (user.roles!.length > 1){
@@ -38,12 +40,15 @@ class LoginController{
     String password = passwordController.text.trim();
 
     ResponseApi? responseApi = await usersProvider.login(email, password);
+    if (!context.mounted) return;
 
     if(responseApi!.success!){
       User user = User.fromJson(responseApi.data);
       _sharedPref.save('user', user.toJson());
       
-      print('USUARIO LOGEADO: ${user.toJson()}');
+      if (kDebugMode) {
+        print('USUARIO LOGEADO: ${user.toJson()}');
+      }
       if (user.roles!.length > 1){
         Navigator.pushNamedAndRemoveUntil(context, 'roles', (route) => false);
       } else{
@@ -55,9 +60,11 @@ class LoginController{
 
     MySnackbar.show(context, responseApi.message!);
     
-    print('Respuesta object: ${responseApi}');
-    print('Respuesta: ${responseApi.toJson()}');
-    print('Email: $email');
-    print('Password: $password');
+    if (kDebugMode) {
+      print('Respuesta object: $responseApi');
+      print('Respuesta: ${responseApi.toJson()}');
+      print('Email: $email');
+      print('Password: $password');
+    }
   }
 }
