@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_delivery/src/models/response_api.dart';
 import 'package:flutter_delivery/src/provider/user_provider.dart';
 import 'package:flutter_delivery/src/utils/my_snackbar.dart';
@@ -11,7 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../models/user.dart';
 
 class RegisterController {
-  BuildContext context;
+  late BuildContext context;
   TextEditingController emailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController lastnameController = TextEditingController();
@@ -21,11 +21,11 @@ class RegisterController {
 
   UserProvider usersProvider = UserProvider();
 
-  XFile xFile;
-  File imageFile;
-  Function refresh;
+  XFile? xFile;
+  File? imageFile;
+  late Function refresh;
 
-  Future init(BuildContext context, Function refresh) {
+  Future<void> init(BuildContext context, Function refresh) async {
     this.context = context;
     this.refresh = refresh;
     usersProvider.init(context);
@@ -69,15 +69,15 @@ class RegisterController {
         password: password
     );
 
-    Stream stream = await usersProvider.createWithImage(user, imageFile);
-    stream.listen((res) {
+    Stream? stream = await usersProvider.createWithImage(user, imageFile);
+    stream!.listen((res) {
       ResponseApi responseApi = ResponseApi.fromJson(json.decode(res));
       if (kDebugMode) {
         print('RESPUESTA: ${responseApi.toJson()}');
       }
-      MySnackbar.show(context, responseApi.message);
+      MySnackbar.show(context, responseApi.message!);
 
-      if (responseApi.success) {
+      if (responseApi.success!) {
         Future.delayed(const Duration(seconds: 3), () {
           Navigator.pushReplacementNamed(context, 'login');
         });
@@ -93,7 +93,7 @@ class RegisterController {
   Future selectImage(ImageSource imageSource) async {
     xFile = await ImagePicker().pickImage(source: imageSource);
     if (xFile != null){
-      imageFile = File(xFile.path);
+      imageFile = File(xFile!.path);
     }
     Navigator.pop(context);
     refresh();

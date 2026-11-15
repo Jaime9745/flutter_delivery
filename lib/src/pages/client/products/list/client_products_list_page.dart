@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_delivery/src/utils/my_colors.dart';
 import 'client_products_list_cotroller.dart';
 
 class ClientProductsListPage extends StatefulWidget {
-  const ClientProductsListPage({Key key}) : super(key: key);
+  const ClientProductsListPage({super.key});
 
   @override
   State<ClientProductsListPage> createState() => _ClientProductsListPageState();
@@ -100,7 +100,7 @@ class _ClientProductsListPageState extends State<ClientProductsListPage> {
                   margin: const EdgeInsets.only(top: 10),
                   child: FadeInImage(
                     image: _con.user?.image != null
-                      ? NetworkImage(_con.user?.image)
+                      ? NetworkImage(_con.user!.image!)
                       : const AssetImage('assets/img/no-image.png'),
                     fit: BoxFit.contain,
                     fadeInDuration: const Duration(milliseconds: 50),
@@ -121,7 +121,7 @@ class _ClientProductsListPageState extends State<ClientProductsListPage> {
             onTap: (){},
           ),
           _con.user != null ?
-          _con.user.roles.length > 1 ?
+          _con.user!.roles!.length > 1 ?
           ListTile(
             title: const Text('Seleccionar Rol'),
             trailing: const Icon(Icons.person_outlined),

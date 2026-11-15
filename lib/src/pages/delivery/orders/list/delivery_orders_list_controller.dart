@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_delivery/src/utils/shared_pref.dart';
 import '../../../../models/user.dart';
 
 class DeliveryOrdersListController{
-  BuildContext context;
+  late BuildContext context;
   final SharedPref _sharedPref = SharedPref();
   GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
-  Function refresh;
-  User user;
+  late Function refresh;
+  User? user;
 
   Future init(BuildContext context, Function refresh) async{
     this.context = context;
@@ -21,7 +21,7 @@ class DeliveryOrdersListController{
   }
 
   void openDrawer() {
-    key.currentState.openDrawer();
+    key.currentState!.openDrawer();
   }
 
   void goToRoles() {

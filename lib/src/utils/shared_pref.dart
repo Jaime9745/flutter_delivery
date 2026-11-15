@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPref{
@@ -11,7 +11,7 @@ class SharedPref{
   Future<dynamic> read(String key) async {
     final prefs = await SharedPreferences.getInstance();
     if (prefs. getString(key) == null)return null;
-    return json.decode(prefs.getString(key));
+    return json.decode(prefs.getString(key)!);
   }
 
   Future<bool> contains(String key) async {

@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_delivery/src/pages/restaurant/orders/list/restaurant_orders_list_controller.dart';
 import '../../../../utils/my_colors.dart';
 
 class RestaurantOrdersListPage extends StatefulWidget {
-  const RestaurantOrdersListPage({Key key}) : super(key: key);
+  const RestaurantOrdersListPage({super.key});
 
   @override
   State<RestaurantOrdersListPage> createState() => _RestaurantOrdersListPageState();
@@ -101,7 +101,7 @@ class _RestaurantOrdersListPageState extends State<RestaurantOrdersListPage> {
                       margin: const EdgeInsets.only(top: 10),
                       child: FadeInImage(
                         image: _con.user?.image != null
-                            ? NetworkImage(_con.user?.image)
+                            ? NetworkImage(_con.user!.image!)
                             : const AssetImage('assets/img/no-image.png'),
                         fit: BoxFit.contain,
                         fadeInDuration: const Duration(milliseconds: 50),
@@ -112,7 +112,7 @@ class _RestaurantOrdersListPageState extends State<RestaurantOrdersListPage> {
                 ),
               ),
               _con.user != null ?
-              _con.user.roles.length > 1 ?
+              _con.user!.roles!.length > 1 ?
               ListTile(
                 title: const Text('Seleccionar Rol'),
                 trailing: const Icon(Icons.person_outlined),

@@ -23,15 +23,15 @@ class User {
     this.roles
   });
 
-  String id;
-  String name;
-  String lastname;
-  String email;
-  String phone;
-  String password;
-  String sessionToken;
-  String image;
-  List<Rol> roles = [];
+  String? id;
+  String? name;
+  String? lastname;
+  String? email;
+  String? phone;
+  String? password;
+  String? sessionToken;
+  String? image;
+  List<Rol>? roles = [];
 
   factory User.fromJson(Map<String, dynamic> json) => User(
     id: json["id"] is int ? json['id'].toString() : json["id"],
@@ -42,7 +42,7 @@ class User {
     password: json["password"],
     sessionToken: json["session_token"],
     image: json["image"],
-    roles: json["roles"] == null ? [] : List<Rol>.from(json['roles'].map((model) => Rol.fromJson(model))) ?? []
+    roles: json["roles"] == null ? [] : List<Rol>.from(json['roles'].map((model) => Rol.fromJson(model)))
   );
 
   Map<String, dynamic> toJson() => {
