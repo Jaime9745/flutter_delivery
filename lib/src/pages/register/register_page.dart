@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_delivery/src/pages/register/register_controller.dart';
 import 'package:flutter_delivery/src/utils/my_colors.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -74,7 +74,7 @@ class _RegisterPageState extends State<RegisterPage> {
       onTap: _con.showAlertDialog,
       child: CircleAvatar(
         backgroundImage: _con.imageFile !=null
-            ? FileImage(_con.imageFile)
+            ? FileImage(_con.imageFile!)
             : const AssetImage('assets/img/user_profile_2.png'),
         radius: 60,
         backgroundColor: Colors.grey[200],

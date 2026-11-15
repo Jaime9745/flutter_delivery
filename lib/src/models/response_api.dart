@@ -8,9 +8,9 @@ String responseApiToJson(ResponseApi data) => json.encode(data.toJson());
 
 class ResponseApi {
 
-  String message;
-  String error;
-  bool success;
+  String? message;
+  String? error;
+  bool? success;
   dynamic data;
 
   ResponseApi({

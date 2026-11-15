@@ -16,10 +16,10 @@ class Rol {
     this.route,
   });
 
-  String id;
-  String name;
-  String image;
-  String route;
+  String? id;
+  String? name;
+  String? image;
+  String? route;
 
   factory Rol.fromJson(Map<String, dynamic> json) => Rol(
     id: json["id"] is int ? json['id'].toString() : json["id"],

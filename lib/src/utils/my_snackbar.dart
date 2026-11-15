@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class MySnackbar {
   static void show(BuildContext context, String text) {
-    if (context == null) return;
-
     FocusScope.of(context).requestFocus(FocusNode());
 
     ScaffoldMessenger.of(context).removeCurrentSnackBar();

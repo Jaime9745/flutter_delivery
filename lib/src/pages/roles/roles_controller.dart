@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_delivery/src/models/user.dart';
 import 'package:flutter_delivery/src/utils/shared_pref.dart';
 
 class RolesController {
-  BuildContext context;
-  Function refresh;
+  late BuildContext context;
+  late Function refresh;
 
-  User user;
+  User? user;
   SharedPref sharedPref = SharedPref();
 
   Future init(BuildContext context, refresh) async {

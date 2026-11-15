@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_delivery/src/pages/client/products/list/client_products_list_page.dart';
 import 'package:flutter_delivery/src/pages/delivery/orders/list/delivery_orders_list_page.dart';
 import 'package:flutter_delivery/src/pages/login/login_page.dart';
@@ -12,7 +12,7 @@ void main() {
 }
 //Herencia de una interfaz grafica
 class MyApp extends StatefulWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
         'delivery/orders/list': (BuildContext context) => const DeliveryOrdersListPage()
       },
       theme: ThemeData(
+        useMaterial3: false, // keep the Material 2 look the app was built with
         colorScheme: ColorScheme.light(
             primary: MyColors.primaryColor
         ),

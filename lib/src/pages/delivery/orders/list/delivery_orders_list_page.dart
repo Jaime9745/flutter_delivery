@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/scheduler.dart';
 import '../../../../utils/my_colors.dart';
 import 'delivery_orders_list_controller.dart';
 
 class DeliveryOrdersListPage extends StatefulWidget {
-  const DeliveryOrdersListPage({Key key}) : super(key: key);
+  const DeliveryOrdersListPage({super.key});
 
   @override
   State<DeliveryOrdersListPage> createState() => _DeliveryOrdersListPageState();
@@ -101,7 +101,7 @@ class _DeliveryOrdersListPageState extends State<DeliveryOrdersListPage> {
                       margin: const EdgeInsets.only(top: 10),
                       child: FadeInImage(
                         image: _con.user?.image != null
-                            ? NetworkImage(_con.user?.image)
+                            ? NetworkImage(_con.user!.image!)
                             : const AssetImage('assets/img/no-image.png'),
                         fit: BoxFit.contain,
                         fadeInDuration: const Duration(milliseconds: 50),

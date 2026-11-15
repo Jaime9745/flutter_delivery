@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_delivery/src/api/environment.dart';
 import 'package:flutter_delivery/src/models/response_api.dart';
 import 'package:flutter_delivery/src/models/user.dart';
@@ -10,16 +10,16 @@ import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 
 class UserProvider {
-    final String _url = Environmet.API_DELIVERY;
+    final String _url = Environmet.apiDelivery;
     final String _api = '/api/users';
 
-    BuildContext context;
+    late BuildContext context;
 
-    Future init(BuildContext context){
+    Future<void> init(BuildContext context) async {
       this.context = context;
     }
 
-    Future<Stream> createWithImage(User user, File image) async {
+    Future<Stream?> createWithImage(User user, File? image) async {
       try{
         Uri url = Uri.http(_url, '$_api/create');
         final request = http.MultipartRequest('POST', url);
@@ -43,7 +43,7 @@ class UserProvider {
       }
     }
 
-    Future<ResponseApi> create(User user) async{
+    Future<ResponseApi?> create(User user) async{
       try{
         Uri url = Uri.http(_url, '$_api/create');
         String bodyParams = json.encode(user);
@@ -63,7 +63,7 @@ class UserProvider {
       }
     }
 
-    Future<ResponseApi> login(String email, String password) async{
+    Future<ResponseApi?> login(String email, String password) async{
       try{
         Uri url = Uri.http(_url, '$_api/login');
         String bodyParams = json.encode({
